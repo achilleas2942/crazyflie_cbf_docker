@@ -39,5 +39,11 @@ catkin_make
 # Source the workspace
 source /root/catkin_ws/devel/setup.bash
 
+# Export ROS_MASTER_URI
+export ROS_MASTER_URI=http://192.168.50.219:11311
+
+# Automatically detect and export the host IP for ROS_IP
+export ROS_IP=$(ip route | grep default | awk '{print $3}')
+
 # Execute the provided command
 exec "$@"
